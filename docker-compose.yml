@@ -2,15 +2,10 @@ services:
     redis:
         networks:
             uninuvola:
-                ipv4_address: 10.9.245.4
+                ipv4_address: ${REDIS_IP}
         container_name: redis
         image: redis
-        command: redis-server --save 60 1 --loglevel warning
-        volumes:
-          - redis:/data
-
-volumes:
-    redis: {}
+        command: redis-server --loglevel warning
 
 networks:
   uninuvola:
