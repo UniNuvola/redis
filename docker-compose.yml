@@ -1,0 +1,12 @@
+services:
+    redis:
+        networks:
+            uninuvola:
+                ipv4_address: ${REDIS_IP}
+        container_name: redis
+        image: redis
+        command: redis-server --loglevel warning --requirepass ${REDIS_PASSWORD)
+
+networks:
+  uninuvola:
+    external: true
